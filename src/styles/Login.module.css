@@ -1,0 +1,58 @@
+.loginFormAndPoster {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+.posterContainer {
+  padding: 1.5rem;
+  > img {
+    width: 100%;
+  }
+}
+
+.formContainer {
+  padding: 1.5rem;
+  padding-left: 0;
+  font-weight: 600;
+  /* background-color: #00a2ff; */
+  > div {
+    display: grid;
+    grid-template-rows: 1fr 3fr;
+    box-shadow: 0px 0px 5px rgba(128, 128, 128, 0.711);
+    border-radius: 0.25rem;
+
+  }
+  > div > header {
+    color: rgb(0, 0, 0);
+    background-color: #eee;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #99999974;
+    padding-left: 2rem;
+  }
+  > div > form {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 2rem 3rem;
+    gap: 2rem;
+    /* background-color: aqua; */
+    > input,
+    > button {
+      padding: 0.75rem;
+      border-radius: 0.25rem;
+    }
+    > input {
+      border: 1px solid rgba(128, 128, 128, 0.508);
+    }
+    > input:focus {
+      border: 1px solid #00a2ff;
+      outline: none;
+    }
+    > button {
+      border: none;
+      color: white;
+      font-family: inherit;
+      background-color: #e4252a;
+      font-weight: 600;
+    }
+  }
+}

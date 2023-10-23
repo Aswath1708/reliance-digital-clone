@@ -1,0 +1,75 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem 0;
+  background-color: rgba(153, 153, 255, 0.16);
+  > h2 {
+    color: #003380;
+    text-align: center;
+    > span {
+      font-weight: 400;
+    }
+  }
+  > form {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    > input {
+      padding: 0.65rem 1rem;
+      width: 25%;
+      border: 1px solid rgba(128, 128, 128, 0.27);
+      border-radius: 0.15rem;
+      font-size: 14px;
+      align-self: stretch;
+    }
+    > button {
+      padding: 0.65rem 1rem;
+      background-color: transparent;
+      color: #003380;
+      border: 1px solid #003380;
+      font-family: inherit;
+      border-radius: 0.15rem;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    > p {
+      color: #3d3d3d;
+    }
+  }
+}
+
+.cardsContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 21%);
+  justify-content: center;
+  gap: 1.25rem;
+  padding: 2rem 0;
+  > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 0px 5px rgba(128, 128, 128, 0.41);
+    gap: 1rem;
+    padding: 1rem;
+    > img {
+      height: 4.25rem;
+      width: 100%;
+      object-fit: contain;
+      border-bottom: 1px solid rgba(128, 128, 128, 0.27);
+      padding-bottom: 1rem;
+
+    }
+    > h3 {
+      color: #003380;
+    }
+    > p {
+
+      color: #585858;
+      font-size: 14px;
+    }
+  }
+}

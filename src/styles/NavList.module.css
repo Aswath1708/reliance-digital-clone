@@ -1,0 +1,20 @@
+.navList {
+  background-color: #e4252a;
+}
+.navList ul {
+  width: 100%;
+  display: grid;
+  list-style: none;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  > li {
+    padding: 0.5rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+    > a {
+      text-decoration: none;
+      color: white;
+    }
+  }
+}
