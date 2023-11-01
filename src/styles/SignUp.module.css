@@ -10,10 +10,10 @@
     box-shadow: 0px 0px 5px rgba(128, 128, 128, 0.711);
     padding-bottom: 3rem;
     >header{
-        background-color: #eee;
+        background-color: #eeeeee82;
         display: flex;
         align-items: center;
-        border-bottom: 1px solid #999;
+        border-bottom: 1px solid #999999a0;
         padding: 1rem;
         >h3{
             color: #000;
@@ -25,8 +25,8 @@
         >form{
             display: flex;
             flex-direction: column;
+            color: #626262;
             >p{
-                color: #626262;
                 font-size: 12px;
             }
             >input,>button{
@@ -44,6 +44,17 @@
             >input:first-child{
                 margin-top: 1.5rem;
             }
+
+            >button{
+                color: white;
+                width: 100%;
+                background-color: rgba(255, 0, 0, 0.8);
+                border: 1px solid rgba(255, 0, 0, 0.8);
+                font-family: inherit;
+                font-weight: 600;
+            }
+        }
+        >form:first-child{
             >button{
                 background-color: transparent;
                 cursor: pointer;
@@ -53,10 +64,9 @@
                 font-weight: 600;
                 width: fit-content;
             }
-            >button:last-child{
-                color: white;
-                width: 100%;
+            >button:hover{
                 background-color: rgba(255, 0, 0, 0.8);
+                color: #fff;
             }
         }
     }
@@ -76,4 +86,8 @@
             font-weight: 600;
         }
     }
+}
+
+.error{
+    color: red;
 }

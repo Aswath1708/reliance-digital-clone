@@ -1,6 +1,6 @@
-import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import React from "react";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const OffersBoardTwo = () => {
   const ArrayOfLinks = [
@@ -14,37 +14,15 @@ const OffersBoardTwo = () => {
     "https://www.reliancedigital.in/medias/Apple-Watch-Series-9-Banner-D-rev-2.jpg?context=bWFzdGVyfGltYWdlc3wxMDkxNzN8aW1hZ2UvanBlZ3xpbWFnZXMvaDU2L2g2NS8xMDA1Njg5MzY2MTIxNC5qcGd8N2Y4ZWU0YmZjMzRmYTM3NmY0OWVkM2ZhMTA4ZWQyODY5OGIwMTg0NjFlMzcwYzY1YmNiYTRiNmY0OTRkNTk5MA",
   ];
 
-  const[state,setState]=useState(0);
-
-  const handleClick = ({ target }) => {
-    console.log(target);
-    if (
-      target.className === "svg-inline--fa.fa-chevron-left" ||
-      target.className === "scroll-left"
-    ) {
-      if (state >= 1) {
-        setState(state - 1);
-      } else {
-        setState(7);
-      }
-    } else {
-      if (state < 7) {
-        setState(state + 1);
-      } else {
-        setState(0);
-      }
-    }
-  };
-
-  return (<div className="offers-Board-two">
-    <button className="scroll-left" onClick={handleClick}>
-        <FontAwesomeIcon icon={faChevronLeft} />
-      </button>
-      <img src={ArrayOfLinks[state]} alt={`Offer-Board-img-${state}`} />
-      <button className="scroll-right" onClick={handleClick}>
-        <FontAwesomeIcon icon={faChevronRight} />
-      </button>
-  </div>);
+  return (
+    <Carousel autoPlay infiniteLoop showThumbs={false} showStatus={false} stopOnHover={false}>
+      {ArrayOfLinks.map((url, i) => {
+        return(<div key={i}>
+          <img src={url} alt="offer-poster" />
+        </div>)
+      })}
+    </Carousel>
+  );
 };
 
 export default OffersBoardTwo;

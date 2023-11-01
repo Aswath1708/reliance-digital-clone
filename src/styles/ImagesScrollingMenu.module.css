@@ -1,0 +1,12 @@
+.imageContainer{
+    padding: 1rem;
+    >img{
+        width: 100%;
+        cursor: pointer;
+    }
+}
+
+.slider{
+    /* background-color: blueviolet; */
+    /* margin-bottom: 3%; */
+}
