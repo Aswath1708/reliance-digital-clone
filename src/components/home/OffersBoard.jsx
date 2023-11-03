@@ -4,7 +4,12 @@ import OffersBoardTwo from "../../components/home/OffersBoardTwo";
 
 const OffersBoard = () => {
   return (
-    <div>
+    <div style={{
+      display:"flex",
+      flexDirection:"column",
+      gap:"1vh",
+      marginTop:"1vh"    
+    }}>
       <OffersBoardOne />
       <OffersBoardTwo />
     </div>

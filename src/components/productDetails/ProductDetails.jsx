@@ -17,6 +17,7 @@ const ProductDetails = () => {
 
   useEffect(() => {
     setIsLoading(true);
+    window.scrollTo(0,0);
     axios
       .get(`https://academics.newtonschool.co/api/v1/ecommerce/product/${id}`, {
         headers: { projectID: "f104bi07c490" },

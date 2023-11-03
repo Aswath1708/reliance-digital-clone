@@ -16,13 +16,15 @@ const Navbar = () => {
   const [field, setField] = useState("");
   const notify = () => toast("Under Construction",{type:"info",autoClose:2000});
 
-  const fetchSearchedProducts = () => {
+  const fetchSearchedProducts = (e) => {
+    e.preventDefault();
     axios
       .get(
         `https://academics.newtonschool.co/api/v1/ecommerce/electronics/products?search={${field}:${searchTerm}}`
       )
       .then((res) => {
         console.log(res.data.data);
+        // setSearchTerm()
       })
       .catch((err) => {
         console.log(err);
@@ -38,7 +40,7 @@ const Navbar = () => {
           navigate("/");
         }}
       />
-      <form onChange={fetchSearchedProducts}>
+      <form onSubmit={fetchSearchedProducts}>
         <input
           type="text"
           placeholder="Find your favourite products"

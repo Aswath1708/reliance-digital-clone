@@ -11,10 +11,17 @@ import ContactUs from "./components/contactus/ContactUs";
 import { Route, Routes } from "react-router-dom";
 import Home from "./components/home/Home";
 import ProductDetails from "./components/productDetails/ProductDetails";
-import LoginModal from "./components/authentication/LoginModal";
+import { createContext, useState } from "react";
+
+export const productListContext = createContext();
 
 function App() {
+
+  const [productList , setProductList] = useState([]);
+
   return (
+    <>
+    <productListContext.Provider value={{productList,setProductList}}>
     <div className="App">
       <NavList />
       <Navbar />
@@ -29,8 +36,9 @@ function App() {
         <Route path="/id/:id" element={<ProductDetails />} />
       </Routes>
       <Footer />
-      {/* <LoginModal/> */}
     </div>
+    </productListContext.Provider>
+    </>
   );
 }
 
