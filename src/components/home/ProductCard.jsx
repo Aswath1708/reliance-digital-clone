@@ -8,7 +8,7 @@ const ProductCard = ({ name, displayImage, price, _id, subCategory }) => {
 
   // console.log(props);
   return (
-    (subCategory=="tv"&&<Link to={`/id/${_id}`} className={styles.productCard}>
+  <Link to={`/id/${_id}`} className={styles.productCard}>
       <div className={styles.imageContainer}>
         <img
           onError={(e) => (e.target.src = brokenImageURL)}
@@ -23,7 +23,7 @@ const ProductCard = ({ name, displayImage, price, _id, subCategory }) => {
         </p>
         <p className={styles.offersAvailable}>OFFERS AVAILABLE</p>
       </div>
-    </Link>)
+    </Link>
   );
 };
 

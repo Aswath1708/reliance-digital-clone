@@ -3,14 +3,14 @@
   padding: 0.5rem 1rem;
   cursor: pointer;
   text-decoration: none;
-  background-color: blue;
+  background-color: #fff;
   border-radius: 0.25rem;
-  padding:2rem 2rem 1rem;
+  padding: 2rem 2rem 1rem;
   display: flex;
   flex-direction: column;
-  height:60vh;
+  /* height:60vh; */
   /* height:100%; */
-  margin: 0 2%;
+  margin: 0.5% 2%;
 }
 
 .imageContainer {

@@ -13,11 +13,11 @@ const ProductDetails = () => {
   const [productDetails, setProductDetails] = useState({ images: [] });
   const [isLoading, setIsLoading] = useState(false);
   const [mainImage, setMainImage] = useState(brokenImageURL);
-  const [showLoginModal , setShowLoginModal] = useState(false);
+  const [showLoginModal, setShowLoginModal] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
     axios
       .get(`https://academics.newtonschool.co/api/v1/ecommerce/product/${id}`, {
         headers: { projectID: "f104bi07c490" },
@@ -29,7 +29,7 @@ const ProductDetails = () => {
       })
       .catch((err) => console.log(err))
       .finally(() => {
-        setTimeout(() => setIsLoading(false), 1500);
+        setTimeout(() => setIsLoading(false), 1000);
       });
   }, []);
   console.log("productDetails", productDetails);
@@ -40,13 +40,13 @@ const ProductDetails = () => {
     setMainImage(url);
   };
 
-  const handleClick = () =>{
+  const handleClick = () => {
     setShowLoginModal(true);
-  }
+  };
 
-  const hideLoginModal = (value) =>{
+  const hideLoginModal = (value) => {
     setShowLoginModal(value);
-  }
+  };
 
   return (
     <>
@@ -131,11 +131,16 @@ const ProductDetails = () => {
                   MRP:{" "}
                   <span>
                     &#8377;
-                    {Math.round(productDetails.price + (productDetails.price / 100) * 22)}
+                    {Math.round(
+                      productDetails.price + (productDetails.price / 100) * 22
+                    )}
                   </span>{" "}
                   (Inclusive of all taxes)
                 </p>
-                <p>You Save: 22% (&#8377;{Math.round((productDetails.price / 100) * 22)})</p>
+                <p>
+                  You Save: 22% (&#8377;
+                  {Math.round((productDetails.price / 100) * 22)})
+                </p>
                 <h3>Free Shipping!</h3>
                 <div className={styles.buttons}>
                   <button onClick={handleClick}>ADD TO CART</button>
@@ -146,7 +151,7 @@ const ProductDetails = () => {
           </div>
         </div>
       )}
-      {showLoginModal&&<LoginModal hideLoginModal={hideLoginModal}/>}
+      {showLoginModal && <LoginModal hideLoginModal={hideLoginModal} />}
     </>
   );
 };

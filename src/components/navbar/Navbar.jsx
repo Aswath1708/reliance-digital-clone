@@ -8,28 +8,18 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
-  const [field, setField] = useState("");
-  const notify = () => toast("Under Construction",{type:"info",autoClose:2000});
+  const notify = () =>
+    toast("Under Construction", { type: "info", autoClose: 2000 });
 
-  const fetchSearchedProducts = (e) => {
-    e.preventDefault();
-    axios
-      .get(
-        `https://academics.newtonschool.co/api/v1/ecommerce/electronics/products?search={${field}:${searchTerm}}`
-      )
-      .then((res) => {
-        console.log(res.data.data);
-        // setSearchTerm()
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  const handleSubmit = (e) =>{
+      e.preventDefault();
+      navigate(`/searchterm/${searchTerm}`);
+  }
 
   return (
     <div className="navBar">
@@ -37,25 +27,29 @@ const Navbar = () => {
         src="https://www.reliancedigital.in/build/client/images/loaders/rd_logo.svg"
         alt="reliance-digital-logo"
         onClick={() => {
+          setSearchTerm(prevData=>"");
           navigate("/");
         }}
       />
-      <form onSubmit={fetchSearchedProducts}>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Find your favourite products"
           onChange={(e) => setSearchTerm(e.target.value)}
+          value={searchTerm}
           required
         />
         <button>
+          {/* <Link to={`/searchterm/${searchTerm}`}/> */}
           <FontAwesomeIcon icon={faMagnifyingGlass} />
         </button>
       </form>
       <div className="list-container">
         <ul>
-          <li className="list-item-one" onClick={notify}>Select your Pin Code
+          <li className="list-item-one" onClick={notify}>
+            Select your Pin Code
           </li>
-          <ToastContainer/>
+          <ToastContainer />
           <li
             className="list-item-two"
             onClick={() => {
