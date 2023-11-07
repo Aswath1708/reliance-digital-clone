@@ -10,7 +10,7 @@ const OffersBoardOne = () => {
   ];
 
   return (
-    <Carousel autoPlay infiniteLoop showThumbs={false} showStatus={false} stopOnHover={false}>
+    <Carousel autoPlay infiniteLoop interval={6000} showThumbs={false} showStatus={false} stopOnHover={false}>
       {ArrayOfLinks.map((url, i) => {
         return (
           <div key={i}>

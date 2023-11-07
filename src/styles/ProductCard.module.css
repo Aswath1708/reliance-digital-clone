@@ -10,7 +10,7 @@
   flex-direction: column;
   /* height:60vh; */
   /* height:100%; */
-  margin: 0.5% 2%;
+  margin: 1% 1%;
 }
 
 .imageContainer {
@@ -21,7 +21,7 @@
   > img {
     width: 100%;
     transition: 0.5s ease;
-  }
+    }
   > img:hover {
     transform: scale(1.125);
   }

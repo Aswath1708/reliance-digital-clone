@@ -5,6 +5,7 @@ import Loader from "../loader/Loader";
 import styles from "../../styles/ProductDetails.module.css";
 import ImagesScrollingMenu from "./ImagesScrollingMenu";
 import LoginModal from "../authentication/LoginModal";
+import { getProjectId } from "../../utils/getProjectId";
 
 const ProductDetails = () => {
   const brokenImageURL =
@@ -20,7 +21,7 @@ const ProductDetails = () => {
     window.scrollTo(0, 0);
     axios
       .get(`https://academics.newtonschool.co/api/v1/ecommerce/product/${id}`, {
-        headers: { projectID: "f104bi07c490" },
+        headers: { projectID: `${getProjectId()}` },
       })
       .then((res) => {
         // console.log(res.data.data);

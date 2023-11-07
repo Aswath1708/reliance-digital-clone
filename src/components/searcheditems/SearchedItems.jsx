@@ -6,6 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import emptyCart from "../../assets/emptysearchpage/preview.jpg";
 import styles from "../../styles/SearchItems.module.css";
 import ProductCard from "../home/ProductCard";
+import { getProjectId } from "../../utils/getProjectId";
 
 const SearchedItems = () => {
   const notify = (message) => {
@@ -23,7 +24,7 @@ const SearchedItems = () => {
         `https://academics.newtonschool.co/api/v1/ecommerce/electronics/products?search={"name":"${searchterm}"}`,
         {
           headers: {
-            projectID: "f104bi07c490",
+            projectID: `${getProjectId()}`,
           },
         }
       )
@@ -33,6 +34,7 @@ const SearchedItems = () => {
         // setSearchTerm()
       })
       .catch((err) => {
+        setSearchedDataList([]);
         console.log(err);
         notify(err.response.data.message);
       });

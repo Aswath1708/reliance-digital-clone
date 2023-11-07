@@ -7,6 +7,7 @@ import Slider from "react-slick";
 import NextArrow from "../productDetails/sliderarrows/NextArrow";
 import PrevArrow from "../productDetails/sliderarrows/PrevArrow";
 import { productListContext } from "../../App";
+import { getProjectId } from "../../utils/getProjectId";
 // import { CarouselProvider, Slide, Slider } from "pure-react-carousel";
 // import 'pure-react-carousel/dist/react-carousel.es.css';
 
@@ -31,7 +32,7 @@ const ProductsContainer = () => {
         "https://academics.newtonschool.co/api/v1/ecommerce/electronics/products",
         {
           headers: {
-            projectID: "f104bi07c490",
+            projectID: `${getProjectId()}`,
           },
         }
       )
