@@ -13,7 +13,7 @@ const NavList = () => {
       <ul>
         {arrayOfServices.slice(0, 5).map(({ text, icon }, i) => {
           return (
-            <li>
+            <li key={i}>
               {icon && <FontAwesomeIcon icon={icon} />}
               {text}
             </li>
@@ -22,7 +22,7 @@ const NavList = () => {
 
         {arrayOfServices.slice(-2).map(({ text, icon, link }, i) => {
           return (
-            <li>
+            <li key={i}>
               <Link to={`/${link}`}>
                 {icon && <FontAwesomeIcon icon={icon} />}
                 {text}

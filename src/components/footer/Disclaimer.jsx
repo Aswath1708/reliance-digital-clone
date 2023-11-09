@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../styles/footer/Footer.module.css";
+import styles from "../../styles/footer/Disclaimer.module.css";
 
 const Disclaimer = () => {
   return (

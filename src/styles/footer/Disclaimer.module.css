@@ -1,0 +1,22 @@
+.disclaimer {
+    background-color: #0a244a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1rem;
+    > h3 {
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: underline;
+    }
+    > p {
+      text-align: center;
+      width: 80%;
+      font-size: 14px;
+      padding: 1rem;
+    }
+    > p:last-child {
+      border-top: 1px solid #ffffff1d;
+      width: 100%;
+    }
+  }

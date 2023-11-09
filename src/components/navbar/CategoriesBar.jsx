@@ -9,7 +9,7 @@ import { getCategoryBarList } from "../../utils/getCategoryBarList";
 
 const CategoriesBar = () => {
   const navigate = useNavigate();
-  const notify = () => toast.info("Filter feature under construction!");
+  const notify = () => toast.info("Dropdown feature is under construction!",{autoClose:2000});
   const onClickOfNavList = (e) => {
     if (!e.target.innerText) {
       notify();

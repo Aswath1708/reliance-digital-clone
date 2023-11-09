@@ -1,0 +1,13 @@
+.footerLinkList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  > h3 {
+    font-size: 16px;
+  }
+  > li {
+    font-weight: 350;
+    cursor: pointer;
+  }
+}

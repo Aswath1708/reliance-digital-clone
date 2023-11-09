@@ -7,9 +7,7 @@ import {
 
 export const getNavList = () => {
   return [
-    {
-      text: "OUR BRAND PROMISE",
-    },
+    { text: "OUR BRAND PROMISE" },
     { text: "EASY RETURN", icon: faRightLeft },
     { text: "NEXT DAY DELIVERY", icon: faTruckFast },
     { text: "SERVICE GUARANTEE", icon: faBellConcierge },

@@ -1,0 +1,30 @@
+.listContainer {
+    > ul {
+      display: flex;
+      list-style: none;
+      font-size: 13px;
+      font-weight: 600;
+      >li{
+        cursor: pointer;
+      }
+      > .listItemOne::after,
+      .listItemTwo::after {
+        content: "";
+        border-right: 1px solid white;
+        margin: 0 0.75rem;
+        align-self: stretch;
+      }
+      > .listItemTwo,
+      .listItemThree {
+        > svg {
+          padding-right: 10px;
+        }
+      }
+      > .listItemThree {
+        > a {
+          color: white;
+          text-decoration: none;
+        }
+      }
+    }
+  }

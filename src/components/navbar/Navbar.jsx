@@ -1,37 +1,23 @@
-import {
-  faCartShopping,
-  faMagnifyingGlass,
-  faUser,
-} from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import styles from '../../styles/navbar/NavBar.module.css'
-import logo from '../../assets/logo/rd_logo.svg';
+import { useNavigate } from "react-router-dom";
+import styles from "../../styles/navbar/NavBar.module.css";
+import NavLinks from "./NavLinks";
+import Logo from "../logo/Logo";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
-  const notify = () =>
-    toast("Under Construction", { type: "info", autoClose: 2000 });
 
-  const handleSubmit = (e) =>{
-      e.preventDefault();
-      navigate(`/searchterm/${searchTerm}`);
-  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate(`/searchterm/${searchTerm}`);
+  };
 
   return (
     <div className={styles.navBar}>
-      <img
-        src={logo}
-        alt="reliance-digital-logo"
-        onClick={() => {
-          setSearchTerm(prevData=>"");
-          navigate("/");
-        }}
-      />
+      <Logo setSearchTerm={setSearchTerm} />
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -44,29 +30,7 @@ const Navbar = () => {
           <FontAwesomeIcon icon={faMagnifyingGlass} />
         </button>
       </form>
-      <div className={styles.listContainer}>
-        <ul>
-          <li className={styles.listItemOne} onClick={notify}>
-            Select your Pin Code
-          </li>
-          <ToastContainer />
-          <li
-            className={styles.listItemTwo}
-            onClick={() => {
-              navigate("/cart");
-            }}
-          >
-            <FontAwesomeIcon icon={faCartShopping} />
-            Cart
-          </li>
-          <li className={styles.listItemThree}>
-            <Link to="/login">
-              <FontAwesomeIcon icon={faUser} />
-              Login
-            </Link>
-          </li>
-        </ul>
-      </div>
+      <NavLinks />
     </div>
   );
 };

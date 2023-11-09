@@ -3,9 +3,11 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import { getOffersBoardTwo } from "../../utils/getOffersBoard";
+import { useNavigate } from "react-router-dom";
 
 const OffersBoardTwo = () => {
   const ArrayOfLinks = getOffersBoardTwo();
+  const navigate = useNavigate();
 
   return (
     <Carousel
@@ -16,10 +18,10 @@ const OffersBoardTwo = () => {
       showStatus={false}
       stopOnHover={false}
     >
-      {ArrayOfLinks.map((url, i) => {
+      {ArrayOfLinks.map(({image,link}, i) => {
         return (
-          <div key={i} style={{cursor:"pointer"}}>
-            <img src={url} alt="offer-poster" />
+          <div key={i} style={{cursor:"pointer"}} onClick={()=>navigate(`${link}`)}>
+            <img src={image} alt="offer-poster" />
           </div>
         );
       })}

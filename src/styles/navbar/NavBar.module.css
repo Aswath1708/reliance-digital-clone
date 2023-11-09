@@ -6,10 +6,6 @@
   background-color: #e4252a;
   gap: 1rem;
   padding: 0.5rem 2rem 0.3rem 3rem;
-  > img {
-    width: 10rem;
-    cursor: pointer;
-  }
   > form {
     /* flex: 1; */
     width: 38%;
@@ -39,35 +35,4 @@
       }
     }
   }
-}
-.listContainer {
-  > ul {
-    display: flex;
-    list-style: none;
-    font-size: 13px;
-    font-weight: 600;
-    > .listItemOne::after,
-    .listItemTwo::after {
-      content: "";
-      border-right: 1px solid white;
-      margin: 0 0.75rem;
-      align-self: stretch;
-    }
-    > .listItemTwo,
-    .listItemThree {
-      > svg {
-        padding-right: 10px;
-      }
-    }
-    > .listItemThree {
-      > a {
-        color: white;
-        text-decoration: none;
-      }
-    }
-  }
-}
-
-.navBar li {
-  cursor: pointer;
 }

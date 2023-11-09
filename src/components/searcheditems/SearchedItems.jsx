@@ -1,7 +1,6 @@
-import { type } from "@testing-library/user-event/dist/type";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import emptyCart from "../../assets/emptysearchpage/preview.jpg";
 import styles from "../../styles/products/SearchItems.module.css";
@@ -9,11 +8,7 @@ import ProductCard from "../home/ProductCard";
 import { getProjectId } from "../../utils/getProjectId";
 
 const SearchedItems = () => {
-  const notify = (message) => {
-    toast(message, { type: "error" });
-  };
-
-  const navigate = useNavigate();
+  const notify = (message) => toast.error(message,{ autoClose: 2000 });
 
   const { searchterm } = useParams();
   const [searchedDataList, setSearchedDataList] = useState([]);
@@ -31,7 +26,6 @@ const SearchedItems = () => {
       .then((res) => {
         console.log(res.data.data);
         setSearchedDataList([...res.data.data]);
-        // setSearchTerm()
       })
       .catch((err) => {
         setSearchedDataList([]);
@@ -49,6 +43,7 @@ const SearchedItems = () => {
         <header
           style={{
             padding: "1%",
+            borderBottom:"1px solid #3d3d3d6c"
           }}
         >
           {" "}
@@ -59,7 +54,7 @@ const SearchedItems = () => {
         </header>
       )}
 
-      <ToastContainer />
+      {/* <ToastContainer /> */}
 
       {searchedDataList.length > 0 ? (
         <div className={styles.searchItemsContainer}>

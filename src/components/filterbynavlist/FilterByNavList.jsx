@@ -9,7 +9,7 @@ import { getProjectId } from "../../utils/getProjectId";
 
 const FilterByNavList = () => {
   const notify = (message) => {
-    toast(message, { type: "error" });
+    toast.error(message);
   };
   const { filter } = useParams();
 
@@ -32,7 +32,6 @@ const FilterByNavList = () => {
         console.log(res.data.data);
         setFilterTerm(filter);
         setFilteredDataList([...res.data.data]);
-        // setSearchTerm()
       })
       .catch((err) => {
         console.log(err);
@@ -54,6 +53,7 @@ const FilterByNavList = () => {
           <header
             style={{
               padding: "1%",
+              borderBottom:"1px solid #3d3d3d6c"
             }}
           >
             {" "}
@@ -72,9 +72,11 @@ const FilterByNavList = () => {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
-              padding: "2%",
+              gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
+              padding: "0.5%",
+              gap: "0.5%",
               backgroundColor: "#ddd",
+              paddingBottom:"2%"
             }}
           >
             {filteredDataList.map((data, i) => {

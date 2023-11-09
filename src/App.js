@@ -15,6 +15,7 @@ import { createContext, useState } from "react";
 import SearchedItems from "./components/searcheditems/SearchedItems";
 import FilterByNavList from "./components/filterbynavlist/FilterByNavList";
 import Cart from "./components/cart/Cart";
+import Disclaimer from "./components/footer/Disclaimer";
 
 export const productListContext = createContext();
 
@@ -41,6 +42,7 @@ function App() {
           </Routes>
           {/* <Cart/> */}
           <Footer />
+          <Disclaimer />
         </div>
       </productListContext.Provider>
     </>
