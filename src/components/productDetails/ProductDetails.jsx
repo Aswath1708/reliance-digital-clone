@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Loader from "../loader/Loader";
-import styles from "../../styles/ProductDetails.module.css";
+import styles from "../../styles/products/ProductDetails.module.css";
 import ImagesScrollingMenu from "./ImagesScrollingMenu";
 import LoginModal from "../authentication/LoginModal";
 import { getProjectId } from "../../utils/getProjectId";

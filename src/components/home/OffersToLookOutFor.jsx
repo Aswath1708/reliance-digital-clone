@@ -1,10 +1,11 @@
 import React from "react";
-import poster1 from "../../assets/offerstolookoutfor/Latest-Range-of-tablets.avif";
-import poster2 from "../../assets/offerstolookoutfor/Latest-Televisions.avif";
-import poster3 from "../../assets/offerstolookoutfor/Red-Blue-Diwali-Theme-Banner-Tecno-POP-7-Pro.avif";
-import poster4 from "../../assets/offerstolookoutfor/Ultimate-Party-Specker.avif";
+
+import { useNavigate } from "react-router-dom";
+import { getOffersToLookOutFor } from "../../utils/getOffersToLookOutFor";
 
 const OffersToLookOutFor = () => {
+  const arrayOfOffers = getOffersToLookOutFor();
+  const navigate = useNavigate();
   return (
     <div style={{ backgroundColor: "#fff", marginTop: "1%" }}>
       <p style={{ color: "#000", padding: "2% 2% 0", fontWeight: "700" }}>
@@ -13,16 +14,25 @@ const OffersToLookOutFor = () => {
       <div
         style={{
           display: "flex",
-          padding: "2% 1%",
+          padding: "1%",
           gap: "1%",
           flexWrap: "wrap",
-          justifyContent: "center",
+          justifyContent: "center"
         }}
       >
-        <img src={poster1} alt="1" />
-        <img src={poster2} alt="2" />
-        <img src={poster3} alt="3" />
-        <img src={poster4} alt="4" />
+        {arrayOfOffers.map(({ image, link }, index) => {
+          return (
+            <img
+              src={image}
+              alt={index + 1}
+              key={index}
+              onClick={() => {
+                navigate(`/filter/${link}`);
+              }}
+              style={{ cursor: "pointer", margin: "1% 0" }}
+            />
+          );
+        })}
       </div>
     </div>
   );

@@ -1,27 +1,25 @@
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import styles from "../../styles/navbar/CategoriesBar.module.css";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { getCategoryBarList } from "../../utils/getCategoryBarList";
 
 const CategoriesBar = () => {
   const navigate = useNavigate();
+  const notify = () => toast.info("Filter feature under construction!");
   const onClickOfNavList = (e) => {
+    if (!e.target.innerText) {
+      notify();
+      return;
+    }
     navigate(`filter/${e.target.id}`);
-    // console.log(e.target.childNodes[0].data);
   };
-  const arrayOfListItems = [
-    { term: "TABLETS", category: "tablet" },
-    { term: "TELEVISIONS", category: "tv" },
-    { term: "AUDIO", category: "audio" },
-    { term: "HOME APPLIANCES", category: "appliances" },
-    { term: "COMPUTERS", category: "laptop" },
-    { term: "MOBILES", category: "mobile" },
-    { term: "KITCHEN APPLIANCES", category: "kitchenappliances" },
-    { term: "PERSONAL CARE", category: "health" },
-    { term: "ACCESSORIES", category: "travel" },
-  ];
+  const arrayOfListItems = getCategoryBarList();
   return (
-    <div className="categories-bar">
+    <div className={styles.categoriesBar}>
       <ul>
         {arrayOfListItems.map(({ term, category }, i) => {
           return (

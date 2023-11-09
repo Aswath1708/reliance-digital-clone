@@ -1,0 +1,18 @@
+.cart{
+    background-color: #ddd;
+    padding: 1% 5%;
+    display: flex;
+    gap: 1%;
+}
+
+.cardContainer{
+    >p{
+        color: #000;
+        font-weight: 600;
+        background-color: #fff;
+        margin-bottom: 1%;
+        padding: 1%;
+        outline: 1px solid rgba(128, 128, 128, 0.329);
+        border-radius: 0.25rem;
+    }
+}

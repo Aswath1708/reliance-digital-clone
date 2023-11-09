@@ -4,11 +4,12 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import axios from "axios";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import styles from '../../styles/navbar/NavBar.module.css'
+import logo from '../../assets/logo/rd_logo.svg';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -22,9 +23,9 @@ const Navbar = () => {
   }
 
   return (
-    <div className="navBar">
+    <div className={styles.navBar}>
       <img
-        src="https://www.reliancedigital.in/build/client/images/loaders/rd_logo.svg"
+        src={logo}
         alt="reliance-digital-logo"
         onClick={() => {
           setSearchTerm(prevData=>"");
@@ -40,18 +41,17 @@ const Navbar = () => {
           required
         />
         <button>
-          {/* <Link to={`/searchterm/${searchTerm}`}/> */}
           <FontAwesomeIcon icon={faMagnifyingGlass} />
         </button>
       </form>
-      <div className="list-container">
+      <div className={styles.listContainer}>
         <ul>
-          <li className="list-item-one" onClick={notify}>
+          <li className={styles.listItemOne} onClick={notify}>
             Select your Pin Code
           </li>
           <ToastContainer />
           <li
-            className="list-item-two"
+            className={styles.listItemTwo}
             onClick={() => {
               navigate("/cart");
             }}
@@ -59,7 +59,7 @@ const Navbar = () => {
             <FontAwesomeIcon icon={faCartShopping} />
             Cart
           </li>
-          <li className="list-item-three">
+          <li className={styles.listItemThree}>
             <Link to="/login">
               <FontAwesomeIcon icon={faUser} />
               Login

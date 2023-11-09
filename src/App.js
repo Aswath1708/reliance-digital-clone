@@ -14,6 +14,7 @@ import ProductDetails from "./components/productDetails/ProductDetails";
 import { createContext, useState } from "react";
 import SearchedItems from "./components/searcheditems/SearchedItems";
 import FilterByNavList from "./components/filterbynavlist/FilterByNavList";
+import Cart from "./components/cart/Cart";
 
 export const productListContext = createContext();
 
@@ -38,6 +39,7 @@ function App() {
             <Route path="/searchterm/:searchterm" element={<SearchedItems />} />
             <Route path="/filter/:filter" element={<FilterByNavList />} />
           </Routes>
+          {/* <Cart/> */}
           <Footer />
         </div>
       </productListContext.Provider>

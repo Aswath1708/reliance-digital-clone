@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../styles/ContactUs.module.css";
+import styles from "../../styles/navbar/ContactUs.module.css";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {

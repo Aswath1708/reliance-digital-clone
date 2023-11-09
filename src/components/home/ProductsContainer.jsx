@@ -2,14 +2,12 @@ import React, { Fragment, useContext, useEffect, useState } from "react";
 import ProductCard from "../../components/home/ProductCard";
 import axios from "axios";
 import Loader from "../../components/loader/Loader";
-import styles from "../../styles/ProductsContainer.module.css";
+import styles from "../../styles/products/ProductsContainer.module.css";
 import Slider from "react-slick";
 import NextArrow from "../productDetails/sliderarrows/NextArrow";
 import PrevArrow from "../productDetails/sliderarrows/PrevArrow";
 import { productListContext } from "../../App";
 import { getProjectId } from "../../utils/getProjectId";
-// import { CarouselProvider, Slide, Slider } from "pure-react-carousel";
-// import 'pure-react-carousel/dist/react-carousel.es.css';
 
 const ProductsContainer = () => {
   const sliderProps = {

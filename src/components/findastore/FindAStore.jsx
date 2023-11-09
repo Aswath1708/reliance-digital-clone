@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../styles/FindAStore.module.css";
+import styles from "../../styles/navbar/FindAStore.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCrosshairs, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 
