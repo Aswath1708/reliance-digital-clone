@@ -10,13 +10,14 @@ const Footer = () => {
     <footer
       style={{
         backgroundColor: "#003380",
-        padding: "1rem 3rem 1.5rem",
+        padding:"0 0 25px 40px"
       }}
     >
       <div
         style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(4,1fr)",
+          display: "flex",
+          flexWrap:"wrap",
+          padding:"0 16px"
         }}
       >
         {footerLinkList.map((data, i) => (

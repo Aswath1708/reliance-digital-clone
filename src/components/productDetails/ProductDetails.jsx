@@ -6,10 +6,10 @@ import styles from "../../styles/products/ProductDetails.module.css";
 import ImagesScrollingMenu from "./ImagesScrollingMenu";
 import LoginModal from "../authentication/LoginModal";
 import { getProjectId } from "../../utils/getProjectId";
+import { getBrokenImageURL } from "../../utils/getBrokenImageURL";
 
 const ProductDetails = () => {
-  const brokenImageURL =
-    "https://static.vecteezy.com/system/resources/previews/004/141/669/non_2x/no-photo-or-blank-image-icon-loading-images-or-missing-image-mark-image-not-available-or-image-coming-soon-sign-simple-nature-silhouette-in-frame-isolated-illustration-vector.jpg";
+  const brokenImageURL = getBrokenImageURL();
   const { id } = useParams();
   const [productDetails, setProductDetails] = useState({ images: [] });
   const [isLoading, setIsLoading] = useState(false);
@@ -24,7 +24,6 @@ const ProductDetails = () => {
         headers: { projectID: `${getProjectId()}` },
       })
       .then((res) => {
-        // console.log(res.data.data);
         setProductDetails({ ...res.data.data });
         setMainImage(res.data.data.displayImage);
       })
@@ -34,20 +33,8 @@ const ProductDetails = () => {
       });
   }, []);
   console.log("productDetails", productDetails);
-  // console.log(mainImage);
-  // console.log(productDetails.images);
 
-  const setMainImageURL = (url) => {
-    setMainImage(url);
-  };
-
-  const handleClick = () => {
-    setShowLoginModal(true);
-  };
-
-  const hideLoginModal = (value) => {
-    setShowLoginModal(value);
-  };
+  const handleClick = () => setShowLoginModal(true);
 
   return (
     <>
@@ -74,9 +61,6 @@ const ProductDetails = () => {
           <div className={styles.productInformation}>
             <div className={styles.productName}>
               <p>{productDetails.name}</p>
-              {/* <section>
-                <p>Ratings:{productDetails.ratings}</p>
-              </section> */}
             </div>
             <div className={styles.priceAndFeatures}>
               <div>
@@ -152,7 +136,7 @@ const ProductDetails = () => {
           </div>
         </div>
       )}
-      {showLoginModal && <LoginModal hideLoginModal={hideLoginModal} />}
+      {showLoginModal && <LoginModal setShowLoginModal={setShowLoginModal} />}
     </>
   );
 };

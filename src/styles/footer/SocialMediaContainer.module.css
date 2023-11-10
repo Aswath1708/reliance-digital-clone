@@ -1,16 +1,26 @@
 .socialMediaAndStoreLinks {
   display: grid;
   grid-template-columns: 1fr 3fr;
+  /* background-color: aqua; */
+  margin-left: 2%;
 }
 
 .socialMediaLinksContainer {
+  /* background-color: blueviolet; */
   > h3 {
     font-size: 16px;
   }
   > div {
     display: flex;
-    > svg {
-      margin: 1rem 10px 10px 0;
+    /* background-color: aqua; */
+    >a{
+      > svg {
+        color: #fff;
+        margin: 8px 10px 10px 0;
+        &:hover{
+          color: #ffffffb0;
+        }
+      }
     }
   }
 }

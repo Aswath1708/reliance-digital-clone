@@ -1,0 +1,47 @@
+.loginModal {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.formContainer {
+  width: 30%;
+  > header {
+    background-color: #39c;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5%;
+    border-radius: 0.5rem 0.5rem 0 0;
+    > svg {
+      cursor: pointer;
+    }
+  }
+  > form {
+    display: flex;
+    flex-direction: column;
+    padding: 8%;
+    background-color: #fff;
+    border-radius: 0 0 0.5rem 0.5rem;
+    gap: 1.5rem;
+    > input,
+    > button {
+      padding: 3%;
+      border-radius: 0.25rem;
+    }
+    > input {
+      border: 1px solid #bbb;
+    }
+    > button {
+      border: none;
+      background-color: #e4252a;
+      color: #fff;
+      font-weight: 600;
+    }
+  }
+}

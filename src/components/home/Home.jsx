@@ -1,5 +1,5 @@
 import React from "react";
-import ProductsContainer from "./ProductsContainer";
+import ProductsContainer from "../home/products/ProductsContainer";
 import OffersBoard from "./OffersBoard";
 import OffersToLookOutFor from "./OffersToLookOutFor";
 import banner from "../../assets/banner/New-user-banner.avif";

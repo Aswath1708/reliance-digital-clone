@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-import ProductCard from "../home/ProductCard";
+import ProductCard from "../home/products/ProductCard";
 import emptyCart from "../../assets/emptysearchpage/preview.jpg";
 import Loader from "../loader/Loader";
 import { getProjectId } from "../../utils/getProjectId";
