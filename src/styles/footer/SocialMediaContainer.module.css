@@ -1,51 +1,32 @@
-.socialMediaContainer {
+.socialMediaAndStoreLinks {
   display: grid;
   grid-template-columns: 1fr 3fr;
-  > section:first-child {
-    > h3 {
-      font-size: 16px;
-    }
-    > div {
-      display: flex;
-      > svg {
-        margin: 1rem 10px 10px 0;
-      }
+}
+
+.socialMediaLinksContainer {
+  > h3 {
+    font-size: 16px;
+  }
+  > div {
+    display: flex;
+    > svg {
+      margin: 1rem 10px 10px 0;
     }
   }
-  > section:last-child {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    > h3 {
-      font-size: 16px;
-    }
-    > div {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      width: fit-content;
-      > section {
-        display: flex;
-        background-color: black;
-        align-items: center;
-        gap: 5px;
-        border-radius: 0.3rem;
-        border: 1px solid white;
-        padding: 5px 7px;
-        > div {
-          > p {
-            font-size: 10px;
-          }
-          > h3 {
-            font-weight: 400;
-            font-size: 16px;
-          }
-        }
-        > svg {
-          height: 1.5rem;
-        }
-      }
-    }
+}
+
+.storeLinksContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  > h3 {
+    font-size: 16px;
+  }
+  > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: fit-content;
   }
 }

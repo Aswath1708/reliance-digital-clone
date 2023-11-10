@@ -9,5 +9,8 @@
   > li {
     font-weight: 350;
     cursor: pointer;
+    &:hover{
+      color: #ffffffb0;
+    }
   }
 }
