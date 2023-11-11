@@ -16,6 +16,9 @@ import SearchedItems from "./components/searcheditems/SearchedItems";
 import FilterByNavList from "./components/filterbynavlist/FilterByNavList";
 import Cart from "./components/cart/Cart";
 import Disclaimer from "./components/footer/Disclaimer";
+import { register } from "swiper/element/bundle";
+
+register();
 
 export const productListContext = createContext();
 

@@ -6,14 +6,13 @@ import styles from "../../styles/products/ProductDetails.module.css";
 import ImagesScrollingMenu from "./ImagesScrollingMenu";
 import LoginModal from "../authentication/LoginModal";
 import { getProjectId } from "../../utils/getProjectId";
-import { getBrokenImageURL } from "../../utils/getBrokenImageURL";
+import brokenImage from '../../assets/brokenImage/no-photo.jpg';
 
 const ProductDetails = () => {
-  const brokenImageURL = getBrokenImageURL();
   const { id } = useParams();
   const [productDetails, setProductDetails] = useState({ images: [] });
   const [isLoading, setIsLoading] = useState(false);
-  const [mainImage, setMainImage] = useState(brokenImageURL);
+  const [mainImage, setMainImage] = useState(brokenImage);
   const [showLoginModal, setShowLoginModal] = useState(false);
 
   useEffect(() => {
@@ -47,14 +46,14 @@ const ProductDetails = () => {
               <img
                 src={mainImage}
                 alt="main-Image"
-                onError={(e) => (e.target.src = brokenImageURL)}
+                onError={(e) => (e.target.src = brokenImage)}
               />
             </div>
             {productDetails.images && (
               <ImagesScrollingMenu
                 images={productDetails.images}
                 callback={setMainImage}
-                brokenImageURL={brokenImageURL}
+                brokenImageURL={brokenImage}
               />
             )}
           </div>

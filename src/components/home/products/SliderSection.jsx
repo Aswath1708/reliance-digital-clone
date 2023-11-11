@@ -1,33 +1,26 @@
-import React from 'react'
-import Slider from "react-slick";
-import NextArrow from "../../productDetails/sliderarrows/NextArrow";
-import PrevArrow from "../../productDetails/sliderarrows/PrevArrow";
-import styles from "../../../styles/products/SliderSection.module.css";
+import React from "react";
 import ProductCard from "./ProductCard";
+import "swiper/css/navigation";
 
-
-const SliderSection = ({productList}) => {
-
-    const sliderProps = {
-        accessibility: true,
-        slidesToShow: 5,
-        centerMode: false,
-        swipe: true,
-        infinite: false,
-        slidesToScroll: 1,
-        nextArrow: <NextArrow />,
-        prevArrow: <PrevArrow />,
-      };
-
+const SliderSection = ({ productList }) => {
   return (
-    <Slider {...sliderProps} className={styles.sliderSection}>
-    {productList
-      .filter((data) => data.subCategory === "tv")
-      .map((data, i) => {
-        return <ProductCard key={i} {...data} />;
-      })}
-  </Slider>
-  )
-}
+    <swiper-container
+      navigation="true"
+      slides-per-view="6"
+      style={{ width: "90vw" }}
+      space-between="10"
+    >
+      {productList
+        .filter((data) => data.subCategory === "tv")
+        .map((data, i) => {
+          return (
+            <swiper-slide key={i}>
+              <ProductCard {...data} />
+            </swiper-slide>
+          );
+        })}
+    </swiper-container>
+  );
+};
 
-export default SliderSection
+export default SliderSection;

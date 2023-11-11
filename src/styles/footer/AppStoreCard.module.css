@@ -1,4 +1,6 @@
 .appStoreCard {
+    text-decoration: none;
+    color: #fff;
     display: flex;
     background-color: black;
     align-items: center;

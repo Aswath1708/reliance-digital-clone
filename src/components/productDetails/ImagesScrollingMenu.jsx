@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import styles from "../../styles/products/ImagesScrollingMenu.module.css";
 import NextArrow from "./sliderarrows/NextArrow";
 import PrevArrow from "./sliderarrows/PrevArrow";
+import { getBrokenImageEvent } from "../../utils/getBrokenImageEvent";
 
 const ImagesScrollingMenu = ({ images, callback,brokenImageURL }) => {
   const sliderProps = {
@@ -17,6 +18,8 @@ const ImagesScrollingMenu = ({ images, callback,brokenImageURL }) => {
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
   };
+
+  const handleError = (e) => getBrokenImageEvent(e);
 
   // console.log("images",images);
   return (
@@ -32,9 +35,7 @@ const ImagesScrollingMenu = ({ images, callback,brokenImageURL }) => {
                 // console.log(e.target);
                 callback(e.target.src);
               }}
-              onError={(e)=>{
-                e.target.src=brokenImageURL;
-              }}
+              onError={handleError}
             />
           </div>
         );
