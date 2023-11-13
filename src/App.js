@@ -24,10 +24,11 @@ export const productListContext = createContext();
 
 function App() {
   const [productList, setProductList] = useState([]);
+  const [JWTtoken,setJWTtoken] = useState("");
 
   return (
     <>
-      <productListContext.Provider value={{ productList, setProductList }}>
+      <productListContext.Provider value={{ productList, setProductList,JWTtoken,setJWTtoken }}>
         <div className="App">
           <NavList />
           <Navbar />

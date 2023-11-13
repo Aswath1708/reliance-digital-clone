@@ -75,7 +75,7 @@ const FilterByNavList = () => {
               gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
               padding: "0.5%",
               gap: "0.5%",
-              backgroundColor: "#ddd",
+              backgroundColor: "#f5f7f7",
               paddingBottom:"2%"
             }}
           >

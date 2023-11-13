@@ -1,21 +1,55 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import styles from "../../styles/authentication/SignUp.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import {
+  getEmailRegEx,
+  getFirstNameRegEx,
+  getLastNameRegEx,
+  getPassWordRegEx,
+} from "../../utils/getRegEx";
+import axios from "axios";
+import { getProjectId } from "../../utils/getProjectId";
+import { productListContext } from "../../App";
 
 const SignUp = () => {
+  const { setJWTtoken,JWTtoken } = useContext(productListContext);
+  const navigate = useNavigate();
   const [firstNameError, setFirstNameError] = useState("");
   const [lastNameError, setLastNameError] = useState("");
   const [eMailError, setEmailError] = useState("");
+  const [passwordError, setPassWordError] = useState("");
+  const [disabledButton, setDisabledButton] = useState(true);
+  const [body, setBody] = useState({});
 
   const firstNameRef = useRef();
   const lastNameRef = useRef();
   const eMailRef = useRef();
+  const passWordRef = useRef();
+
+  const notifySuccess = () =>
+    toast.success("Email Verified!", { autoClose: 2000 });
+
+  const notifyWarning = () =>
+    toast.warn("Please Verify your Mail Address!", { autoClose: 2000 });
+
+  const notifyError = (message) => toast.error(message, { autoClose: 2000 });
+
+  const passWordRegEx = getPassWordRegEx();
 
   const verifyNameAndEmail = (e) => {
     e.preventDefault();
-    const eMailRegEx = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-    const firstNameRegEx = /^[A-Za-z]{3,}$/;
-    const lastNameRegEx = /^[A-Za-z]{1,}$/;
+    const eMailRegEx = getEmailRegEx();
+    const firstNameRegEx = getFirstNameRegEx();
+    const lastNameRegEx = getLastNameRegEx();
+
+    setBody({
+      ...body,
+      name: firstNameRef.current.value,
+      email: eMailRef.current.value,
+      password: passWordRef.current.value,
+      appType: "ecommerce",
+    });
 
     if (!firstNameRegEx.test(firstNameRef.current.value)) {
       setFirstNameError(
@@ -23,21 +57,56 @@ const SignUp = () => {
       );
     } else {
       setFirstNameError("");
+      if (!lastNameRegEx.test(lastNameRef.current.value)) {
+        setLastNameError(
+          "Last Name should atleast contain 1 letter with no special characters!"
+        );
+      } else {
+        setLastNameError("");
+        if (!eMailRegEx.test(eMailRef.current.value)) {
+          setEmailError("Please Enter a valid mail address!");
+        } else {
+          setEmailError("");
+          notifySuccess();
+          setDisabledButton(false);
+        }
+      }
     }
+  };
 
-    if (!lastNameRegEx.test(lastNameRef.current.value)) {
-      setLastNameError(
-        "Last Name should atleast contain 1 letter with no special characters!"
-      );
+  const handleProceedClick = (e) => {
+    e.preventDefault();
+    if (disabledButton) {
+      notifyWarning();
     } else {
-      setLastNameError("");
+      if (!passWordRegEx.test(passWordRef.current.value)) {
+        setPassWordError(
+          "Password must be minimum eight characters, at least one letter and one number!"
+        );
+      } else {
+        setPassWordError("");
+        signUpAPICall();
+        console.log(JWTtoken);
+      }
     }
+  };
 
-    if (!eMailRegEx.test(eMailRef.current.value)) {
-      setEmailError("Please Enter a valid mail address!");
-    } else {
-      setEmailError("");
-    }
+  const signUpAPICall = () => {
+    axios
+      .post("https://academics.newtonschool.co/api/v1/user/signup", body, {
+        headers: {
+          projectID: `${getProjectId()}`,
+        },
+      })
+      .then((res) => {
+        console.log(res.data);
+        setJWTtoken(res.data.token);
+        navigate("/login");
+      })
+      .catch((err) => {
+        console.log(err);
+        notifyError(err.response.data.message);
+      });
   };
 
   return (
@@ -51,7 +120,7 @@ const SignUp = () => {
             <input
               type="text"
               name=""
-              id=""
+              id="firstname"
               placeholder="First Name*"
               ref={firstNameRef}
               required
@@ -60,7 +129,7 @@ const SignUp = () => {
             <input
               type="text"
               name=""
-              id=""
+              id="lastname"
               placeholder="Last Name*"
               ref={lastNameRef}
               required
@@ -69,7 +138,7 @@ const SignUp = () => {
             <input
               type="email"
               name=""
-              id=""
+              id="email"
               placeholder="Email Address*"
               ref={eMailRef}
               required
@@ -85,18 +154,16 @@ const SignUp = () => {
 
             <button>VERIFY EMAIL</button>
           </form>
-          <form>
+          <form onSubmit={handleProceedClick}>
             <input
-              type="tel"
+              type="password"
               name=""
-              id=""
-              placeholder="Mobile Number*"
+              id="password"
+              placeholder="Password*"
+              ref={passWordRef}
               required
             />
-            <p>
-              Your mobile number will be used to avail benefits such as Jio Mart
-              Cashback and ROne Loyality Points and receive quick notifications.
-            </p>
+            {passwordError && <p className={styles.error}>{passwordError}</p>}
             <button>PROCEED</button>
           </form>
         </main>

@@ -33,7 +33,10 @@ const ProductDetails = () => {
   }, []);
   console.log("productDetails", productDetails);
 
-  const handleClick = () => setShowLoginModal(true);
+  const handleClick = () => {
+    setShowLoginModal(true)
+    document.body.style.overflowY="hidden";
+  };
 
   return (
     <>
@@ -53,7 +56,6 @@ const ProductDetails = () => {
               <ImagesScrollingMenu
                 images={productDetails.images}
                 callback={setMainImage}
-                brokenImageURL={brokenImage}
               />
             )}
           </div>

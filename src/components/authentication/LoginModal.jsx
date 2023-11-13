@@ -4,6 +4,12 @@ import styles from "../../styles/authentication/LoginModal.module.css";
 import React from "react";
 
 const LoginModal = ({ setShowLoginModal }) => {
+
+  const handleClick = () =>{
+    setShowLoginModal(false);
+    document.body.style.overflowY="visible";
+  }
+
   return (
     <div className={styles.loginModal}>
       <div className={styles.formContainer}>
@@ -11,7 +17,7 @@ const LoginModal = ({ setShowLoginModal }) => {
           <h3>Login / Register</h3>
           <FontAwesomeIcon
             icon={faXmark}
-            onClick={() => setShowLoginModal(false)}
+            onClick={handleClick}
           />
         </header>
         <form>

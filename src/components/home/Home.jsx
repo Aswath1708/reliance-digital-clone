@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 const Home = () => {
   const navigate = useNavigate();
   return (
-    <div style={{ backgroundColor: "#eee" }}>
+    <div style={{ backgroundColor: "#f5f7f7" }}>
       <OffersBoard />
       <OffersToLookOutFor />
       <ProductsContainer />

@@ -1,13 +1,12 @@
 import React from "react";
 import ProductCard from "./ProductCard";
-import "swiper/css/navigation";
 
 const SliderSection = ({ productList }) => {
   return (
     <swiper-container
       navigation="true"
       slides-per-view="6"
-      style={{ width: "90vw" }}
+      style={{ width: "90vw"}}
       space-between="10"
     >
       {productList

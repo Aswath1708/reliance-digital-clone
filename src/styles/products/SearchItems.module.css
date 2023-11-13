@@ -3,6 +3,6 @@
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   padding: 0.5%;
   gap: 0.5%;
-  background-color: #ddd;
+  background-color: #f5f7f7;
   padding-bottom: 2%;
 }

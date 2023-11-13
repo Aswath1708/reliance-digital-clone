@@ -8,7 +8,7 @@ const ProductCard = ({ name, displayImage, price, _id }) => {
   return (
     <Link to={`/id/${_id}`} className={styles.productCard}>
       <div className={styles.imageContainer}>
-        <img src={displayImage} alt="product-image" onError={handleError}/>
+        <img src={displayImage} alt="product-image" onError={handleError} />
       </div>
       <div className={styles.productDetails}>
         <p className={styles.productName} title={name}>

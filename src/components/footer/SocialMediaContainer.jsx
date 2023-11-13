@@ -14,8 +14,8 @@ const SocialMediaContainer = () => {
         <h3>{socialMediaHeader}</h3>
         <div>
           {socialMediaIcons.map(({icon,link}, i) => (
-            <a href={link}>
-            <FontAwesomeIcon icon={icon} key={i}/>
+            <a href={link}  key={i}>
+            <FontAwesomeIcon icon={icon}/>
             </a>
           ))}
         </div>
