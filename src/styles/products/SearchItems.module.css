@@ -1,8 +1,8 @@
 .searchItemsContainer {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  padding: 0.5%;
-  gap: 0.5%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px;
+  gap: 10px;
   background-color: #f5f7f7;
-  padding-bottom: 2%;
 }

@@ -9,7 +9,8 @@ import SliderSection from "./SliderSection";
 
 const ProductsContainer = () => {
   // const [productListData, setProductListData] = useState([]);
-  const { productList, setProductList } = useContext(productListContext);
+  // const { productList, setProductList } = useContext(productListContext);
+  const [productList,setProductList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     setIsLoading(true);
@@ -38,6 +39,7 @@ const ProductsContainer = () => {
       ) : (
         <div className={styles.productsSection}>
           <p>Upto 22% offer on Televisions</p>
+          {/* <h2 style={{color:"#000"}}>Slider</h2> */}
           <SliderSection productList={productList} />
         </div>
       )}

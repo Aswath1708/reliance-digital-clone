@@ -1,5 +1,6 @@
 .navList {
   background-color: #e4252a;
+  /* position: sticky; */
 }
 .navList ul {
   width: 100%;
@@ -16,6 +17,15 @@
     > a {
       text-decoration: none;
       color: white;
+    }
+  }
+}
+
+@media screen and (width<800px) {
+  .navList ul{
+    font-size: 12px;
+    >li{
+      padding: 0.25rem;
     }
   }
 }

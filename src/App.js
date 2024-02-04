@@ -2,7 +2,7 @@ import "./styles/App.css";
 import CategoriesBar from "./components/navbar/CategoriesBar";
 import Navbar from "./components/navbar/Navbar";
 import Login from "./components/authentication/Login";
-import Footer from "./components/footer/Footer";
+// import Footer from "./components/footer/Footer";
 import SignUp from "./components/authentication/SignUp";
 import NavList from "./components/navbar/NavList";
 import EmptyCart from "./components/cart/EmptyCart";
@@ -15,7 +15,7 @@ import { createContext, useState } from "react";
 import SearchedItems from "./components/searcheditems/SearchedItems";
 import FilterByNavList from "./components/filterbynavlist/FilterByNavList";
 import Cart from "./components/cart/Cart";
-import Disclaimer from "./components/footer/Disclaimer";
+// import Disclaimer from "./components/footer/Disclaimer";
 import { register } from "swiper/element/bundle";
 
 register();
@@ -23,16 +23,19 @@ register();
 export const productListContext = createContext();
 
 function App() {
-  const [productList, setProductList] = useState([]);
-  const [JWTtoken,setJWTtoken] = useState("");
+  // const [productList, setProductList] = useState([]);
+  const [JWTtoken, setJWTtoken] = useState("");
 
   return (
     <>
-      <productListContext.Provider value={{ productList, setProductList,JWTtoken,setJWTtoken }}>
-        <div className="App">
-          <NavList />
-          <Navbar />
-          <CategoriesBar />
+      <productListContext.Provider value={{ JWTtoken, setJWTtoken }}>
+        <div>
+          <span className="sticky">
+            {" "}
+            <NavList />
+            <Navbar />
+            <CategoriesBar />
+          </span>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
@@ -45,8 +48,6 @@ function App() {
             <Route path="/filter/:filter" element={<FilterByNavList />} />
           </Routes>
           {/* <Cart/> */}
-          <Footer />
-          <Disclaimer />
         </div>
       </productListContext.Provider>
     </>

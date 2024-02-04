@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../../assets/logo/rd_logo.svg";
 import { useNavigate } from "react-router-dom";
+import styles from '../../styles/navbar/Logo.module.css'
 
 const Logo = ({ setSearchTerm }) => {
   const navigate = useNavigate();
@@ -9,10 +10,7 @@ const Logo = ({ setSearchTerm }) => {
     <img
       src={logo}
       alt="reliance-digital-logo"
-      style={{
-        width: "10rem",
-        cursor: "pointer",
-      }}
+      className={styles.logo}
       onClick={() => {
         setSearchTerm(prevData => "");
         navigate("/");

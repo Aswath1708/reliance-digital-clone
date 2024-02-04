@@ -18,3 +18,18 @@
     }
   }
 }
+
+@media screen and (width<800px){
+  .footerLinkList{
+    padding: 0px;
+    gap: 0.25rem;
+    margin-bottom: 10px;
+    >h3{
+      font-size: 12px;
+      
+    }
+    >li{
+      font-size: 10px;
+    }
+  }
+}

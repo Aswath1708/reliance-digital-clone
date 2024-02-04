@@ -5,7 +5,7 @@ import { getBrokenImageEvent } from "../../../utils/getBrokenImageEvent";
 
 const ProductCard = ({ name, displayImage, price, _id }) => {
   const handleError = (e) => getBrokenImageEvent(e);
-  return (
+  return(
     <Link to={`/id/${_id}`} className={styles.productCard}>
       <div className={styles.imageContainer}>
         <img src={displayImage} alt="product-image" onError={handleError} />

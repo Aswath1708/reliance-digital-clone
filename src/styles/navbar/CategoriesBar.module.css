@@ -1,5 +1,7 @@
 .categoriesBar {
   background-color: #003380;
+
+
   > ul {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -17,6 +19,17 @@
     > li:hover {
       background-color: #e4252a;
       cursor: pointer;
+    }
+  }
+}
+
+@media screen and (width<800px) {
+  .categoriesBar {
+    > ul {
+      > li {
+        font-size: 10px;
+        padding: 0.25rem;
+      }
     }
   }
 }

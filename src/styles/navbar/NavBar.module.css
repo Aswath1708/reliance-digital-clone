@@ -6,6 +6,7 @@
   background-color: #e4252a;
   gap: 1rem;
   padding: 0.5rem 2rem 0.3rem 3rem;
+  z-index: 10;
   > form {
     /* flex: 1; */
     width: 38%;
@@ -33,6 +34,16 @@
       >svg{
       font-size: 16px;
       }
+    }
+  }
+}
+
+@media screen and (width<800px) {
+  .navBar{
+    flex-direction: column;
+    padding: 0.5rem;
+    >form{
+      width: 90%;
     }
   }
 }

@@ -40,3 +40,19 @@
     width: fit-content;
   }
 }
+
+@media screen and (width<800px) {
+  .socialMediaAndStoreLinks{
+    margin-left: 0;
+  }
+  .storeLinksContainer{
+    >h3{
+      font-size: 10px;
+    }
+  }
+  .socialMediaLinksContainer{
+    >h3{
+      font-size: 10px;
+    }
+  }
+}

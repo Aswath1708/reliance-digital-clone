@@ -6,6 +6,7 @@ import ProductCard from "../home/products/ProductCard";
 import emptyCart from "../../assets/emptysearchpage/preview.jpg";
 import Loader from "../loader/Loader";
 import { getProjectId } from "../../utils/getProjectId";
+import styles from "../../styles/products/FilterByNavList.module.css";
 
 const FilterByNavList = () => {
   const notify = (message) => {
@@ -47,49 +48,31 @@ const FilterByNavList = () => {
     fetchFilteredProducts();
   }, [filter]);
   return (
-    <>
-      <div style={{ color: "#000" }}>
-        {filteredDataList.length > 0 && (
-          <header
-            style={{
-              padding: "1%",
-              borderBottom:"1px solid #3d3d3d6c"
-            }}
-          >
-            {" "}
-            <h2>{filterTerm.toUpperCase()}</h2>
-            <p style={{ color: "#3d3d3d" }}>
-              ( {filteredDataList.length} products )
-            </p>
-          </header>
-        )}
+    <div className={styles.container}>
+      {filteredDataList.length > 0 && (
+        <header>
+          {" "}
+          <h2>{filterTerm.toUpperCase()}</h2>
+          <p>( {filteredDataList.length} products )</p>
+        </header>
+      )}
 
-        <ToastContainer />
+      <ToastContainer />
 
-        {isLoading ? (
-          <Loader />
-        ) : filteredDataList.length > 0 ? (
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
-              padding: "0.5%",
-              gap: "0.5%",
-              backgroundColor: "#f5f7f7",
-              paddingBottom:"2%"
-            }}
-          >
-            {filteredDataList.map((data, i) => {
-              return <ProductCard key={i} {...data} />;
-            })}
-          </div>
-        ) : (
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            <img src={emptyCart} alt="empty cart" style={{ width: "60%" }} />
-          </div>
-        )}
-      </div>
-    </>
+      {isLoading ? (
+        <Loader />
+      ) : filteredDataList.length > 0 ? (
+        <div className={styles.cardsContainer}>
+          {filteredDataList.map((data, i) => {
+            return <ProductCard key={i} {...data} />;
+          })}
+        </div>
+      ) : (
+        <div className={styles.emptyResultsContainer}>
+          <img src={emptyCart} alt="empty cart" />
+        </div>
+      )}
+    </div>
   );
 };
 
