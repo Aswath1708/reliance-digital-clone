@@ -8,7 +8,7 @@ import NavList from "./components/navbar/NavList";
 import EmptyCart from "./components/cart/EmptyCart";
 import FindAStore from "./components/findastore/FindAStore";
 import ContactUs from "./components/contactus/ContactUs";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Home from "./components/home/Home";
 import ProductDetails from "./components/productDetails/ProductDetails";
 import { createContext, useState } from "react";
@@ -26,13 +26,22 @@ function App() {
   // const [productList, setProductList] = useState([]);
   const [JWTtoken, setJWTtoken] = useState("");
 
+  const [showNavList, setShowNavList] = useState(false);
+
+  const { pathname } = useLocation();
+
+  useState(() => {
+    if (pathname == "/") setShowNavList(false);
+    else setShowNavList(true);
+  }, [pathname]);
+
   return (
     <>
       <productListContext.Provider value={{ JWTtoken, setJWTtoken }}>
         <div>
           <span className="sticky">
             {" "}
-            <NavList />
+            {showNavList && <NavList />}
             <Navbar />
             <CategoriesBar />
           </span>
