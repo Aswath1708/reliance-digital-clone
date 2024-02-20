@@ -11,7 +11,7 @@ import ContactUs from "./components/contactus/ContactUs";
 import { Route, Routes, useLocation } from "react-router-dom";
 import Home from "./components/home/Home";
 import ProductDetails from "./components/productDetails/ProductDetails";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import SearchedItems from "./components/searcheditems/SearchedItems";
 import FilterByNavList from "./components/filterbynavlist/FilterByNavList";
 import Cart from "./components/cart/Cart";
@@ -30,7 +30,9 @@ function App() {
 
   const { pathname } = useLocation();
 
-  useState(() => {
+  console.log(pathname);
+
+  useEffect(() => {
     if (pathname == "/") setShowNavList(false);
     else setShowNavList(true);
   }, [pathname]);

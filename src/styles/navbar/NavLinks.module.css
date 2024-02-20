@@ -28,3 +28,9 @@
       }
     }
   }
+
+  @media screen and (width<=900px) {
+    .listContainer{
+      display: none;
+    }    
+  }

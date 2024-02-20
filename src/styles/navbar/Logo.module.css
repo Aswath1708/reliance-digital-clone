@@ -1,10 +1,10 @@
-.logo{
-    width: 10rem;
-    cursor: pointer;
-  }
+.logo {
+  width: 10rem;
+  cursor: pointer;
+}
 
-  @media screen and (width<800px) {
-    .logo{
-      width: 5rem;
-    }
+@media screen and (width<=900px) {
+  .logo {
+    width: 6rem;
   }
+}

@@ -1,4 +1,4 @@
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -17,7 +17,10 @@ const Navbar = () => {
 
   return (
     <div className={styles.navBar}>
+      <div>
+      <FontAwesomeIcon icon={faBars}/>
       <Logo setSearchTerm={setSearchTerm} />
+      </div>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
